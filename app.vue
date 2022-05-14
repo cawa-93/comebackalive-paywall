@@ -1,6 +1,21 @@
 <script lang="ts" setup>
 
-import { computed, ref } from "#imports";
+import { computed, ref, useHead } from "#imports";
+
+useHead({
+  title: 'Платний екран на користь фонду Повернись Живим',
+  link: [
+    {'rel': 'icon', 'type': 'image/png', 'sizes': '32x32', 'href': '/favicon-32x32.png'},
+    {'rel': 'icon', 'type': 'image/png', 'sizes': '16x16', 'href': '/favicon-16x16.png'},
+  ],
+  meta: [
+    {name: 'robots', content: 'index,follow'},
+    {
+      name: 'description',
+      content: 'Тут ви можете створити закрите посилання на контент, який буде доступний лише після донату у фонд Повернись Живим',
+    },
+  ],
+});
 
 const formElement = ref<HTMLFormElement | null>();
 
@@ -55,16 +70,6 @@ const reportUrl = computed(() => {
 </script>
 
 <template>
-  <Head>
-    <title>Платний екран на користь фонду Повернись Живим</title>
-    <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://savelife.in.ua/">
-
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-
-    <meta name="description" content="Тут ви можете створити закрите посилання на контент, який буде доступний лише після донату у фонд Повернись Живим">
-  </Head>
   <div class="container py-3">
 
     <h1>
@@ -134,10 +139,10 @@ const reportUrl = computed(() => {
         <input type="url" readonly class="form-control" id="staticEmail" :value="reportUrl">
         <a target="_blank" v-if="reportUrl" :href="reportUrl" class="input-group-text">🔗</a>
       </div>
-        <div id="emailHelp" class="form-text">
-          <b>Цей URL для вас</b>.
-          За ним ви можете подивитись загальну суму донатів за тегом.
-        </div>
+      <div id="emailHelp" class="form-text">
+        <b>Цей URL для вас</b>.
+        За ним ви можете подивитись загальну суму донатів за тегом.
+      </div>
     </div>
 
   </div>
