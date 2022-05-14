@@ -55,6 +55,16 @@ const reportUrl = computed(() => {
 </script>
 
 <template>
+  <Head>
+    <title>Платний екран на користь фонду Повернись Живим</title>
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://savelife.in.ua/">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta name="description" content="Тут ви можете створити закрите посилання на контент, який буде доступний лише після донату у фонд Повернись Живим">
+  </Head>
   <div class="container py-3">
 
     <h1>
