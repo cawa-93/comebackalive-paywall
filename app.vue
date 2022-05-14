@@ -95,18 +95,18 @@ const reportUrl = computed(() => {
     <form class="was-validated mb-3" ref="formElement">
 
       <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Адреса призначення</label>
-        <input type="url" v-model="next" class="form-control" required placeholder="https://…">
-        <div id="emailHelp" class="form-text">
+        <label for="next" class="form-label">Адреса призначення</label>
+        <input type="url" v-model="next" id="next" class="form-control" aria-describedby="next-help" required placeholder="https://…">
+        <div id="next-help" class="form-text">
           На цю адресу буде переспрямовано людину після донату. Це може бути посилання на відео, арт, статтю, архів файлів будь-де, закриту групу тощо.
           Швидко створити сторінку в інтернеті можна тут: <a href="https://telegra.ph/" target="_blank">telegra.ph</a>
         </div>
       </div>
 
       <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Унікальний тег</label>
-        <input type="search" v-model="tag" class="form-control" required>
-        <div id="emailHelp" class="form-text">Слугує для побудови звітів. Це може бути будь який текст. Всі донати з однаковим тегом будуть об’єднані в один звіт.</div>
+        <label for="tag" class="form-label">Унікальний тег</label>
+        <input type="search" v-model="tag" class="form-control" required id="tag" aria-describedby="tag-help">
+        <div id="tag-help" class="form-text">Слугує для побудови звітів. Це може бути будь який текст. Всі донати з однаковим тегом будуть об’єднані в один звіт.</div>
       </div>
 
       <div class="mb-3">
@@ -117,19 +117,19 @@ const reportUrl = computed(() => {
             <option>USD</option>
             <option>EUR</option>
           </select>
-          <input type="number" class="form-control" required v-model="amount">
+          <input type="number" class="form-control" required v-model="amount" id="amount">
         </div>
       </div>
 
       <hr>
 
       <div class="mb-3">
-        <label for="staticEmail" class="form-label">Посилання на збір </label>
+        <label for="donationUrl" class="form-label">Посилання на збір </label>
         <div class="input-group">
-          <input type="url" readonly class="form-control" id="staticEmail" :value="donationUrl">
-          <a target="_blank" v-if="donationUrl" :href="donationUrl" class="input-group-text">🔗</a>
+          <input type="url" readonly class="form-control" id="donationUrl" :value="donationUrl" aria-describedby="donationUrl-help">
+          <a target="_blank" v-if="donationUrl" :href="donationUrl" class="input-group-text" title="Перейти за посиланням">🔗</a>
         </div>
-        <div id="emailHelp" class="form-text">
+        <div id="donationUrl-help" class="form-text">
           <b>Публікуйте це посилання в соц.мережах</b>.
           Перейшовши за ним, відвідувач спочатку внесе донат і після зарахування коштів буде переспрямований на адресу призначення
         </div>
@@ -137,12 +137,12 @@ const reportUrl = computed(() => {
 
 
       <div class="mb-3">
-        <label for="staticEmail" class="form-label">Звіт всіх донатів за тегом тут</label>
+        <label for="reportUrl" class="form-label">Звіт всіх донатів за тегом тут</label>
         <div class="input-group">
-          <input type="url" readonly class="form-control" id="staticEmail" :value="reportUrl">
-          <a target="_blank" v-if="reportUrl" :href="reportUrl" class="input-group-text">🔗</a>
+          <input type="url" readonly class="form-control" id="reportUrl" :value="reportUrl" aria-describedby="reportUrl-help">
+          <a target="_blank" v-if="reportUrl" :href="reportUrl" class="input-group-text" title="Перейти за посиланням">🔗</a>
         </div>
-        <div id="emailHelp" class="form-text">
+        <div id="reportUrl-help" class="form-text">
           <b>Цей URL для вас</b>.
           За ним ви можете подивитись загальну суму донатів за тегом.
         </div>
