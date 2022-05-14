@@ -38,7 +38,7 @@ const isFormValid = computed(() =>
 const donationUrl = computed(() => {
   const baseURL = new URL('https://subscribe.comebackalive.in.ua/pay');
   baseURL.searchParams.set('amount', amount.value.toString());
-  baseURL.searchParams.set('cy', currency.value.toString());
+  baseURL.searchParams.set('currency', currency.value.toString());
   baseURL.searchParams.set('tag', tag.value.toString());
   baseURL.searchParams.set('next', next.value.toString());
 
