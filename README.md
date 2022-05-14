@@ -1,42 +1,9 @@
-# Nuxt 3 Minimal Starter
+# Платний екран на користь фонду Повернись Живим
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+Тут ви можете створити закрите посилання на контент, який буде доступний лише після пожертви у фонд Повернись Живим 
 
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+## Як це працює
+2. Ви заповнюєте форму на сайті https://comebackalive-paywall.netlify.app/ вказавши куди користувач повинен потрапити після пожертви, розмір пожертви
+3. Під формою для вас буде згенеровано спеціальна URL адреса
+4. Перейшовши за цією адресою, вашому підписнику буде запропоновано внести пожертву у фонд Повернись Живим визначеного розміру
+5. Після того як оплату буде зараховано його автоматично перенаправить за адресою призначення
