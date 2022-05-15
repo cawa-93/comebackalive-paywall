@@ -17,8 +17,6 @@ useHead({
   ],
 });
 
-const formElement = ref<HTMLFormElement | null>();
-
 const amount = ref(50);
 const currency = ref('UAH');
 const tag = ref('');
@@ -72,33 +70,39 @@ const reportUrl = computed(() => {
   <div class="container py-3">
 
     <h1>
-      Платний екран на користь фонду
+      Створіть власне посилання збору коштів для фонду
       <br>
       <a href="https://savelife.in.ua/" target="_blank">Повернись Живим</a>
     </h1>
 
     <p>
-      Тут ви можете створити закрите посилання на контент, який буде доступний лише після донату у фонд Повернись Живим
+      Тут ви можете створити закрите посилання на контент, який буде доступний лише після донату у фонд Повернись Живим.
     </p>
 
     <details class="mb-3">
       <summary>Як це працює</summary>
       <ol>
-        <li>Ви заповнюєте форму нижче вказавши куди користувач повинен потрапити після донату та розмір донату</li>
-        <li>Під формою для вас буде згенеровано спеціальна URL адреса</li>
-        <li>Перейшовши за цією адресою, вашому підписнику буде запропоновано внести донат у фонд Повернись Живим визначеного розміру</li>
-        <li>Після того як оплату буде зараховано його автоматично перенаправить за адресою призначення</li>
+        <li>Ви заповнюєте форму нижче вказавши куди користувач повинен потрапити після донату та розмір донату.</li>
+        <li>Під формою для вас буде згенеровано спеціальна URL адреса.</li>
+        <li>Перейшовши за цією адресою, вашому підписнику буде запропоновано внести донат у фонд Повернись Живим визначеного розміру.</li>
+        <li>Після того як оплату буде зараховано його автоматично перенаправить за адресою призначення.</li>
       </ol>
     </details>
 
-    <form class="was-validated mb-3" ref="formElement">
+    <form class="was-validated mb-3">
 
       <div class="mb-3">
         <label for="next" class="form-label">Адреса призначення</label>
-        <input type="url" v-model="next" id="next" class="form-control" aria-describedby="next-help" required placeholder="https://…">
+        <input type="url"
+               v-model="next"
+               id="next"
+               class="form-control"
+               aria-describedby="next-help"
+               required
+               placeholder="https://…">
         <div id="next-help" class="form-text">
           На цю адресу буде переспрямовано людину після донату. Це може бути посилання на відео, арт, статтю, архів файлів будь-де, закриту групу тощо.
-          Швидко створити сторінку в інтернеті можна тут: <a href="https://telegra.ph/" target="_blank">telegra.ph</a>
+          Швидко створити сторінку в інтернеті можна тут: <a href="https://telegra.ph/" target="_blank">telegra.ph</a>.
         </div>
       </div>
 
@@ -117,18 +121,29 @@ const reportUrl = computed(() => {
       <div class="mb-3">
         <label for="tag" class="form-label">Унікальний тег</label>
         <input type="search" v-model="tag" class="form-control" id="tag" aria-describedby="tag-help">
-        <div id="tag-help" class="form-text">Слугує для побудови звітів. Це може бути будь який текст. Всі донати з однаковим тегом будуть об’єднані в один звіт.</div>
+        <div id="tag-help"
+             class="form-text">Слугує для побудови звітів. Це може бути будь який текст. Всі донати з однаковим тегом будуть об’єднані в один звіт.
+        </div>
       </div>
-
 
 
       <hr>
 
+
       <div class="mb-3">
         <label for="donationUrl" class="form-label">Посилання на збір </label>
         <div class="input-group">
-          <input type="url" readonly class="form-control" id="donationUrl" :value="donationUrl" aria-describedby="donationUrl-help">
-          <a target="_blank" v-if="donationUrl" :href="donationUrl" class="input-group-text" title="Перейти за посиланням">🔗</a>
+          <input type="url"
+                 readonly
+                 class="form-control"
+                 id="donationUrl"
+                 :value="donationUrl"
+                 aria-describedby="donationUrl-help">
+          <a target="_blank"
+             v-if="donationUrl"
+             :href="donationUrl"
+             class="input-group-text"
+             title="Перейти за посиланням">🔗</a>
         </div>
         <div id="donationUrl-help" class="form-text">
           <b>Публікуйте це посилання в соц.мережах</b>.
@@ -140,8 +155,17 @@ const reportUrl = computed(() => {
       <div class="mb-3">
         <label for="reportUrl" class="form-label">Звіт всіх донатів за тегом тут</label>
         <div class="input-group">
-          <input type="url" readonly class="form-control" id="reportUrl" :value="reportUrl" aria-describedby="reportUrl-help">
-          <a target="_blank" v-if="reportUrl" :href="reportUrl" class="input-group-text" title="Перейти за посиланням">🔗</a>
+          <input type="url"
+                 readonly
+                 class="form-control"
+                 id="reportUrl"
+                 :value="reportUrl"
+                 aria-describedby="reportUrl-help">
+          <a target="_blank"
+             v-if="reportUrl"
+             :href="reportUrl"
+             class="input-group-text"
+             title="Перейти за посиланням">🔗</a>
         </div>
         <div id="reportUrl-help" class="form-text">
           <b>Цей URL для вас</b>.
@@ -218,23 +242,26 @@ h1 {
 
 
 footer {
-  text-align: center;
+  text-align : center;
   @include margin-top(5rem);
 }
+
 
 a:not(:hover, :focus-visible) {
   text-decoration : none;
 }
 
+
 a[href="https://github.com/cawa-93/comebackalive-paywall"] {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  font-size: 0.8em;
-  color: inherit;
+  margin-left : auto;
+  display     : inline-flex;
+  align-items : center;
+  gap         : 0.5em;
+  font-size   : 0.8em;
+  color       : inherit;
+
   &:not(:hover, :focus-visible) {
-    opacity: 0.5;
+    opacity : 0.5;
   }
 }
 
