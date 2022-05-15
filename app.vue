@@ -3,7 +3,7 @@
 import { computed, ref, useHead } from "#imports";
 
 useHead({
-  title: 'Платний екран на користь фонду Повернись Живим',
+  title: 'Створіть власне посилання збору коштів для фонду Повернись Живим',
   link: [
     {'rel': 'icon', 'type': 'image/png', 'sizes': '32x32', 'href': '/favicon-32x32.png'},
     {'rel': 'icon', 'type': 'image/png', 'sizes': '16x16', 'href': '/favicon-16x16.png'},
@@ -264,6 +264,4 @@ a[href="https://github.com/cawa-93/comebackalive-paywall"] {
     opacity : 0.5;
   }
 }
-
-
 </style>
