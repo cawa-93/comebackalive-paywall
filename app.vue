@@ -45,7 +45,6 @@ const isValidNextURL = computed(() => {
 const isFormValid = computed(() =>
     amount.value > 0
     && ['UAH', 'USD', 'EUR'].includes(currency.value)
-    && !!tag.value?.trim()
     && isValidNextURL.value,
 );
 
@@ -65,7 +64,7 @@ const reportUrl = computed(() => {
   const baseURL = new URL('https://report.comebackalive.in.ua/public/dashboard/a297a107-6740-4b69-9603-f91703f7afba');
   baseURL.searchParams.set('tag', tag.value.toString());
 
-  return isFormValid.value ? baseURL.toString() : '';
+  return (isFormValid.value && !!tag.value?.trim()) ? baseURL.toString() : '';
 });
 </script>
 
@@ -104,12 +103,6 @@ const reportUrl = computed(() => {
       </div>
 
       <div class="mb-3">
-        <label for="tag" class="form-label">Унікальний тег</label>
-        <input type="search" v-model="tag" class="form-control" required id="tag" aria-describedby="tag-help">
-        <div id="tag-help" class="form-text">Слугує для побудови звітів. Це може бути будь який текст. Всі донати з однаковим тегом будуть об’єднані в один звіт.</div>
-      </div>
-
-      <div class="mb-3">
         <label for="amount" class="form-label">Валюта та розмір донату</label>
         <div class="input-group mb-3">
           <select class="input-group-text" v-model="currency" required>
@@ -120,6 +113,14 @@ const reportUrl = computed(() => {
           <input type="number" class="form-control" required v-model="amount" id="amount">
         </div>
       </div>
+
+      <div class="mb-3">
+        <label for="tag" class="form-label">Унікальний тег</label>
+        <input type="search" v-model="tag" class="form-control" id="tag" aria-describedby="tag-help">
+        <div id="tag-help" class="form-text">Слугує для побудови звітів. Це може бути будь який текст. Всі донати з однаковим тегом будуть об’єднані в один звіт.</div>
+      </div>
+
+
 
       <hr>
 
